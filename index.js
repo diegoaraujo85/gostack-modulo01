@@ -7,7 +7,10 @@ const server = express();
 //request body = { "name": "Diego" }
 
 server.get("/teste", (req, res) => {
-  return res.json({ message: `Hello World` });
+  // localhost:3000/teste?nome=Diego
+  const nome = req.query.nome;
+
+  return res.json({ message: `Hello ${nome}` });
 });
 
 server.listen(3000);
