@@ -54,6 +54,7 @@ server.post("/users",checkUSerExists, (req, res) => {
   const { name } = req.body;
 
   users.push(name);
+  
   return res.json(users);
 });
 
