@@ -6,11 +6,16 @@ const server = express();
 //route params = /users/1
 //request body = { "name": "Diego" }
 
-server.get("/users/:id", (req, res) => {
-  // localhost:3000/users/1
-  const id = req.params.id;
+const users = ["Diego", "Icaro", "Cairo"]
 
-  return res.json({ message: `Buscando o usuário ${id}` });
+server.get("/users/:index", (req, res) => {
+  // localhost:3000/users/1
+  //antes
+  //const id = req.params.id;
+  //depois da desestruturação
+  const { index } = req.params;
+
+  return res.json(users[index]);
 });
 
 server.listen(3000);
